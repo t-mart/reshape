@@ -26,7 +26,7 @@ path and the XXH64 hash.
 ## `reshape apply`
 
 ```sh
-uvx uvx git+https://github.com/t-mart/reshape.git apply /path/to/source <reshape.json
+uvx git+https://github.com/t-mart/reshape.git apply /path/to/source <reshape.json
 ```
 
 Given a root directory and JSON input from `reshape gen` on stdin, hardlinks
