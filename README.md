@@ -17,7 +17,7 @@ not be created in the target structure.
 ## `reshape gen`
 
 ```sh
-uvx git+https://github.com/t-mart/reshape.git gen /path/to/source >files.json
+uvx git+https://github.com/t-mart/reshape.git gen /path/to/source >reshape.json
 ```
 
 Outputs JSON a list of objects for each file in a root directory, containing the
@@ -26,7 +26,7 @@ path and the XXH64 hash.
 ## `reshape apply`
 
 ```sh
-uvx uvx git+https://github.com/t-mart/reshape.git apply /path/to/source <files.json
+uvx uvx git+https://github.com/t-mart/reshape.git apply /path/to/source <reshape.json
 ```
 
 Given a root directory and JSON input from `reshape gen` on stdin, hardlinks
