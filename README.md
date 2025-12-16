@@ -14,19 +14,20 @@ another tool like `rclone` to fill in those files manually.
 Note: empty directories are not represented in the JSON output, and thus will
 not be created in the target structure.
 
-## Installation
+## `reshape gen`
 
 ```sh
-uv tool install git+https://github.com/t-mart/reshape.git
-rehape --help
+uvx git+https://github.com/t-mart/reshape.git gen /path/to/source >files.json
 ```
-
-## `reshape gen`
 
 Outputs JSON a list of objects for each file in a root directory, containing the
 path and the XXH64 hash.
 
 ## `reshape apply`
+
+```sh
+uvx uvx git+https://github.com/t-mart/reshape.git apply /path/to/source <files.json
+```
 
 Given a root directory and JSON input from `reshape gen` on stdin, hardlinks
 identically-hashing files from the root directory into the new structure.
