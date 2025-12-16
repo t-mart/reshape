@@ -147,8 +147,23 @@ def apply(root: Path) -> None:
             continue
 
         new_path = input_hashes[hexhash]
-        new_path.parent.mkdir(parents=True, exist_ok=True)
         target_path = paths[0]
         click.echo(f"Linking {target_path} to {new_path}", err=True)
-        new_path.unlink(missing_ok=True)
-        new_path.hardlink_to(target_path)
+
+        try:
+            new_path.parent.mkdir(parents=True, exist_ok=True)
+        except Exception as e:
+            click.echo(f"Error creating directories for {new_path}: {e}", err=True)
+            continue
+
+        try:
+            new_path.unlink(missing_ok=True)
+        except Exception as e:
+            click.echo(f"Error removing existing file {new_path}: {e}", err=True)
+            continue
+
+        try:
+            new_path.hardlink_to(target_path)
+        except Exception as e:
+            click.echo(f"Error hardlinking {new_path} to {target_path}: {e}", err=True)
+            continue
