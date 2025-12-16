@@ -14,6 +14,13 @@ another tool like `rclone` to fill in those files manually.
 Note: empty directories are not represented in the JSON output, and thus will
 not be created in the target structure.
 
+## Installation
+
+```sh
+uv tool install git+https://github.com/t-mart/reshape.git
+rehape --help
+```
+
 ## `reshape gen`
 
 Outputs JSON a list of objects for each file in a root directory, containing the
